@@ -1,33 +1,40 @@
 {
-    "pluginAlias": "SensorCmd",
-    "pluginType": "accessory",
-    "singular": false,
-    "schema": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "type": "string",
-          "required": true
-        },
-        "type": {
-            "title": "Sensor Type",
-            "type": "string",
-            "default": "Contact",
-            "oneOf": [
-              { "title": "Contact", "enum": ["contact"] },
-              { "title": "Motion", "enum": ["motion"] },
-              { "title": "Occupancy", "enum": ["occupancy"] }
-            ],
-            "required": true
-          },
-          "command": {
-            "title": "Command",
-            "type": "string",
-            "required": true
-          }
+  "pluginAlias": "SensorCmd",
+  "pluginType": "accessory",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true
+      },
+      "type": {
+        "title": "Sensor Type",
+        "type": "string",
+        "default": "contact",
+        "oneOf": [
+          { "title": "Contact", "enum": ["contact"] },
+          { "title": "Motion", "enum": ["motion"] },
+          { "title": "Occupancy", "enum": ["occupancy"] }
+        ],
+        "required": true
+      },
+      "command": {
+        "title": "Command",
+        "type": "string",
+        "required": true,
+        "description": "Shell command that returns 1 or 0"
+      },
+      "pollingInterval": {
+        "title": "Polling Interval (seconds)",
+        "type": "number",
+        "default": 0,
+        "description": "Optional: Poll the command automatically at this interval. Set 0 to disable polling."
       }
-    },
-    "form": null,
-    "display": null
-  }
+    }
+  },
+  "form": null,
+  "display": null
+}
